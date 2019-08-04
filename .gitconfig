@@ -1,0 +1,6 @@
+[user]
+	name = Hai Nguyen
+	email = nduyhai@users.noreply.github.com
+	signingkey = 55A04ADED31B2935
+[commit]
+	gpgsign = true
