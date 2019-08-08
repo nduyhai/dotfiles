@@ -71,6 +71,7 @@ ZSH_THEME="agnoster"
 plugins=(
 	git
 	tmux
+	fzf
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -103,3 +104,5 @@ source $ZSH/oh-my-zsh.sh
 #
 alias update='sudo apt-get -y update'
 alias upgrade='sudo apt-get -y --allow-unauthenticated upgrade && sudo apt-get autoclean && sudo apt-get autoremove'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh && source ~/.tmux.conf
