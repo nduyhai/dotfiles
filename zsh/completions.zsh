@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 autoload -Uz compinit
 
 # Stable cache file; avoids rewriting ~/.zcompdump constantly

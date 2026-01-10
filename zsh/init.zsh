@@ -1,3 +1,6 @@
+# shellcheck shell=bash
+# shellcheck disable=SC2206
+
 # ---------- Basic options ----------
 setopt AUTO_CD
 setopt HIST_IGNORE_DUPS
@@ -34,4 +37,3 @@ source "$DOTFILES/zsh/functions.zsh"
 source "$DOTFILES/zsh/completions.zsh"
 source "$DOTFILES/zsh/plugins.zsh"
 source "$DOTFILES/zsh/prompt.zsh"
-source "$HOME/.sdkman/bin/sdkman-init.sh"

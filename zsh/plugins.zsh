@@ -1,7 +1,9 @@
+# shellcheck shell=bash
+# shellcheck disable=SC1090,SC2154
 # zsh-autosuggestions (brew path)
-if [[ -r /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+# shellcheck source=/dev/null
+[[ -r /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] &&
   source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-fi
 
 # fzf (lazy-load to avoid startup cost)
 fzf_loaded=0

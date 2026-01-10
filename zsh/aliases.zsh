@@ -1,3 +1,5 @@
+# shellcheck shell=bash
+# shellcheck disable=SC1090
 # Load grouped aliases from subfiles.
 # Add more files under $DOTFILES/zsh/aliases to organize aliases by topic.
 for alias_file in "$DOTFILES/zsh/aliases"/*.zsh; do

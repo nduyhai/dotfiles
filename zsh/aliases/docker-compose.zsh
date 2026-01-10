@@ -1,3 +1,5 @@
+# shellcheck shell=bash
+# shellcheck disable=SC2139,SC2154
 [[ -x "${commands[docker - compose]:A}" ]] && dccmd='docker-compose' || dccmd='docker compose'
 
 alias dco="$dccmd"

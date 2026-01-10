@@ -1,3 +1,5 @@
+# shellcheck shell=bash
+# shellcheck disable=SC1090
 # Quick reload
 reload() { source ~/.zshrc; }
 

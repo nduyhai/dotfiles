@@ -17,5 +17,10 @@ fi
 
 source "$DOTFILES/zsh/init.zsh"
 
+export SDKMAN_DIR="$HOME/.sdkman"
+# shellcheck source=/dev/null
+[[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
+
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

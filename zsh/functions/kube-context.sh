@@ -115,7 +115,7 @@ menu_pick() {
     return 0
   fi
 
-  echo "\n📋 Available contexts:"
+  printf "\n📋 Available contexts:\n"
   local i=1
   for ctx in "${contexts[@]}"; do
     if [ "$ctx" = "$current" ]; then
