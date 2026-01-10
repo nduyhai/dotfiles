@@ -28,9 +28,25 @@ brew install awscli
 brew install azure-cli
 brew install google-cloud-sdk
 
+# Another's
+brew install glow       # Markdown
+brew install lazydocker # Dokcer UI
+brew install stern      # Tail multiple Kubernetes pods & their containers
+brew install tmux       # Terminal multiplexer
+brew install fd         # Alternative to find
+brew install wrk        # Benchmarking tool
+brew install k9s        # K9s
+brew install colima     # Container runtimes
+
 # SDK Man
 curl -s "https://get.sdkman.io" | zsh
 
+```
+
+### How to check which ones you installed manually
+
+```bash
+brew leaves
 ```
 
 ## Install dotfile
