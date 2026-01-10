@@ -4,6 +4,7 @@
 
 ```bash
 chmod +x scripts/install.sh
+make install
 ```
 
 
@@ -11,4 +12,5 @@ chmod +x scripts/install.sh
 
 ```bash
 chmod +x scripts/uninstall.sh
+make uninstall
 ```

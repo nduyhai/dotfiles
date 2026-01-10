@@ -9,3 +9,14 @@ _kubectl_lazy_complete() {
   fi
 }
 # We'll attach compdef in completions.zsh after compinit.
+
+
+# kubectl context switcher
+kctx() {
+  local script="${DOTFILES:-$HOME/.dotfiles}/scripts/functions/kube-context.sh"
+  if [[ ! -x "$script" ]]; then
+    echo "kctx: missing executable: $script" >&2
+    return 1
+  fi
+  "$script" "$@"
+}
