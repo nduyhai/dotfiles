@@ -10,7 +10,7 @@ https://docs.brew.sh/Installation
 
 ```bash
 xcode-select --install                 # Install Xcode Command Line Tools
-brew install --cask iterm2             #Iterm2
+brew install --cask iterm2             # Iterm2
 brew install git                       # Git
 brew install --cask visual-studio-code # VS Code
 brew install --cask docker             # Docker

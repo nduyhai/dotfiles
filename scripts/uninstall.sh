@@ -10,13 +10,13 @@ unlink_if_points_to_repo() {
     local target
     target="$(readlink "$dst")"
     case "$target" in
-    "$REPO_ROOT"/*)
-      rm "$dst"
-      echo "Removed symlink: $dst -> $target"
-      ;;
-    *)
-      echo "Skip: $dst is a symlink but not to this repo ($target)"
-      ;;
+      "$REPO_ROOT"/*)
+        rm "$dst"
+        echo "Removed symlink: $dst -> $target"
+        ;;
+      *)
+        echo "Skip: $dst is a symlink but not to this repo ($target)"
+        ;;
     esac
   else
     echo "Skip: $dst is not a symlink"
