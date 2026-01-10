@@ -89,8 +89,9 @@ make uninstall
 
 ## Git config
 
-### Example .gitconfig.local
+### Extra local config 
 
+.gitconfig.local
 ```
 [user]
     name = hai.nguyen.duy
@@ -109,11 +110,25 @@ make uninstall
 	insteadOf = https://git.mycompany.vn/
 ```
 
-### Verify git config
+.gitconfig-personal
+```
+[user]
+    name = nduyhai
+    email = nduyhai@users.noreply.github.com
+```
+
+.gitconfig-mycompany
+```
+[user]
+    name = nduyhai
+    email = nduyhai@mycompany.com
+```
+
+### Verify Git config
 
 ```bash 
 cd ~/workspace/some-repo && git config --show-origin user.email
-cd ~/company/some-repo && git config --show-origin user.email
+cd ~/mycompany/some-repo && git config --show-origin user.email
 
 ```
 
