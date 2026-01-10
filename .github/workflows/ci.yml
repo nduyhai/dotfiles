@@ -1,0 +1,63 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  shell-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y shellcheck
+          curl -sSLo /usr/local/bin/shfmt https://github.com/mvdan/sh/releases/download/v3.8.0/shfmt_v3.8.0_linux_amd64
+          sudo chmod +x /usr/local/bin/shfmt
+
+      - name: Format check (shfmt)
+        run: |
+          FILES=$(find . -type f \( -name "*.sh" -o -name "*.zsh" \) | grep -vE '(^./\.git/|^./vendor/|^./node_modules/)' || true)
+          if [ -n "$FILES" ]; then
+            shfmt -d -i 2 -ci $FILES
+          fi
+
+      - name: Lint (shellcheck)
+        run: |
+          FILES=$(find . -type f \( -name "*.sh" -o -name "*.zsh" \) | grep -vE '(^./\.git/|^./vendor/|^./node_modules/)' || true)
+          if [ -n "$FILES" ]; then
+            shellcheck -x $FILES
+          fi
+
+  gitleaks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Gitleaks (secret scan)
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITLEAKS_ENABLE_UPLOAD_ARTIFACT: "false"
+          GITLEAKS_ENABLE_SUMMARY: "true"
+
+  trivy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Trivy filesystem scan
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          scan-type: "fs"
+          scan-ref: "."
+          severity: "HIGH,CRITICAL"
+          ignore-unfixed: true
+          exit-code: "1"
