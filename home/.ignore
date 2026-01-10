@@ -1,0 +1,32 @@
+# Git
+.git/
+
+# Dependencies
+node_modules/
+vendor/
+
+# Build output
+dist/
+build/
+out/
+bin/
+
+# Cache
+.cache/
+.tmp/
+tmp/
+
+# IDE
+.idea/
+.vscode/
+
+# Logs
+*.log
+
+# Large artifacts
+*.jar
+*.war
+*.zip
+*.tar
+*.tar.gz
+*.tgz

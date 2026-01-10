@@ -23,7 +23,7 @@ bootstrap:
 	@./scripts/bootstrap.sh
 
 install:
-	@./scripts/install.sh
+	@./scripts/install.sh --force
 
 uninstall:
 	@./scripts/uninstall.sh

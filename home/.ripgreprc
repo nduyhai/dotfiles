@@ -1,0 +1,25 @@
+# Better defaults
+--smart-case
+--hidden
+--follow
+
+# Respect ignore files
+--ignore-file ~/.ignore
+
+# Don't search these
+--glob=!.git/*
+--glob=!node_modules/*
+--glob=!vendor/*
+--glob=!dist/*
+--glob=!build/*
+--glob=!out/*
+--glob=!bin/*
+--glob=!.idea/*
+--glob=!.vscode/*
+--glob=!*.min.js
+--glob=!*.min.css
+
+# Nice output
+--line-number
+--no-heading
+--color=always

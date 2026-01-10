@@ -1,0 +1,8 @@
+[user]
+  name = nduyhai
+  email = nduyhai@users.noreply.github.com
+
+[include]
+  path = ~/.gitconfig.local
+[include]
+  path = ~/.main.gitconfig

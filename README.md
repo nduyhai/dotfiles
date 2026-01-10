@@ -56,11 +56,25 @@ mkdir ~/workspace
 cd workspace
 git clone https://github.com/nduyhai/dotfiles.git
 ```
+```bash
+bootstrap
+cd dotfiles
+chmod +x scripts/bootstrap.sh
+make bootstrap
 
+```
 ```bash
 cd dotfiles
 chmod +x scripts/install.sh
 make install
+```
+
+## Doctor
+
+```bash
+cd dotfiles
+chmod +x scripts/doctor.sh
+make doctor
 ```
 
 ## Uninstall
@@ -69,6 +83,37 @@ make install
 cd dotfiles
 chmod +x scripts/uninstall.sh
 make uninstall
+
+```
+
+
+## Git config
+
+### Example .gitconfig.local
+
+```
+[user]
+    name = hai.nguyen.duy
+    email = hai.nguyen.duy@vieon.vn
+
+[includeIf "gitdir:~/workspace/"]
+    path = ~/.gitconfig-personal
+
+[includeIf "gitdir:~/mycompany/"]
+    path = ~/.gitconfig-mycompany
+
+[include]
+    path = ~/.main.gitconfig
+
+[url "git@git.mycompany.vn:"]
+	insteadOf = https://git.mycompany.vn/
+```
+
+### Verify git config
+
+```bash 
+cd ~/workspace/some-repo && git config --show-origin user.email
+cd ~/company/some-repo && git config --show-origin user.email
 
 ```
 
