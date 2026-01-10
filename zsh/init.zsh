@@ -10,8 +10,18 @@ setopt NO_BEEP
 setopt NONOMATCH
 
 # ---------- Paths (dedupe) ----------
-typeset -U PATH path
-export PATH="$HOME/bin:/opt/homebrew/bin:$PATH"
+typeset -U path
+path=(
+  /usr/local/bin
+  /usr/bin
+  /bin
+  /usr/sbin
+  /sbin
+  "$HOME/bin"
+  /opt/homebrew/bin
+  $path
+)
+export PATH
 
 # ---------- Cache ----------
 export ZSH_CACHE_DIR="$HOME/.cache/zsh"
@@ -24,3 +34,4 @@ source "$DOTFILES/zsh/functions.zsh"
 source "$DOTFILES/zsh/completions.zsh"
 source "$DOTFILES/zsh/plugins.zsh"
 source "$DOTFILES/zsh/prompt.zsh"
+source "$HOME/.sdkman/bin/sdkman-init.sh"

@@ -8,8 +8,6 @@ _kubectl_lazy_complete() {
     source <(kubectl completion zsh)
   fi
 }
-# We'll attach compdef in completions.zsh after compinit.
-
 
 # kubectl context switcher
 kctx() {
