@@ -11,7 +11,7 @@ _kubectl_lazy_complete() {
 
 # kubectl context switcher
 kctx() {
-  local script="${DOTFILES:-$HOME/.dotfiles}/scripts/functions/kube-context.sh"
+  local script="${DOTFILES:-$HOME/.dotfiles}/zsh/functions/kube-context.sh"
   if [[ ! -x "$script" ]]; then
     echo "kctx: missing executable: $script" >&2
     return 1

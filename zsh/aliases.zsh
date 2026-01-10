@@ -1,6 +1,5 @@
-alias ll='ls -lah'
-alias gs='git status'
-alias ga='git add'
-alias gc='git commit'
-alias gp='git push'
-alias gl='git pull'
+# Load grouped aliases from subfiles.
+# Add more files under $DOTFILES/zsh/aliases to organize aliases by topic.
+for alias_file in "$DOTFILES/zsh/aliases"/*.zsh; do
+  [ -f "$alias_file" ] && source "$alias_file"
+done

@@ -54,7 +54,7 @@ install_to_zshrc() {
       $0 ~ start {flag=1; next}
       $0 ~ end {flag=0; next}
       !flag {print}
-    ' "$ZSHRC" > "$ZSHRC.tmp" && mv "$ZSHRC.tmp" "$ZSHRC"
+    ' "$ZSHRC" >"$ZSHRC.tmp" && mv "$ZSHRC.tmp" "$ZSHRC"
   fi
 
   mkdir -p "$HOME"
@@ -65,7 +65,7 @@ install_to_zshrc() {
     echo "  \"$SCRIPT_ABS_PATH\" \"\$@\""
     echo "}"
     echo "$MARK_END"
-  } >> "$ZSHRC"
+  } >>"$ZSHRC"
 
   echo "✅ Installed 'kctx' function to $ZSHRC"
   echo "🔁 Run: source $ZSHRC  (or open a new terminal)"
@@ -93,11 +93,11 @@ use_context() {
 fzf_pick() {
   local current="$1"
   local selection
-  selection=$(list_contexts | awk -v cur="$current" '{ if ($0==cur) printf("* %s\n", $0); else print $0 }' | \
+  selection=$(list_contexts | awk -v cur="$current" '{ if ($0==cur) printf("* %s\n", $0); else print $0 }' |
     fzf --ansi --no-multi --prompt="k8s context > " --height=50% --reverse \
-        --header="Current: ${current:-<none>}  (Press ESC to cancel)" \
-        --with-nth=1.. \
-        --preview-window=down,hidden)
+      --header="Current: ${current:-<none>}  (Press ESC to cancel)" \
+      --with-nth=1.. \
+      --preview-window=down,hidden)
 
   # Remove leading * and space if present
   selection="${selection#* }"
@@ -108,10 +108,11 @@ menu_pick() {
   local current="$1"
   local contexts=("$(list_contexts | tr '\n' ' ')")
   # Rebuild array properly
-  IFS=' ' read -r -a contexts <<< "$(list_contexts | tr '\n' ' ')"
+  IFS=' ' read -r -a contexts <<<"$(list_contexts | tr '\n' ' ')"
 
   if [ ${#contexts[@]} -eq 0 ]; then
-    echo ""; return 0
+    echo ""
+    return 0
   fi
 
   echo "\n📋 Available contexts:"
@@ -122,13 +123,16 @@ menu_pick() {
     else
       printf "  %2d) %s\n" "$i" "$ctx"
     fi
-    i=$((i+1))
+    i=$((i + 1))
   done
   echo "  0) Cancel"
 
   local choice
   while true; do
-    read -rp "Select a context number: " choice || { echo ""; return 0; }
+    read -rp "Select a context number: " choice || {
+      echo ""
+      return 0
+    }
     if [[ "$choice" =~ ^[0-9]+$ ]] && [ "$choice" -ge 0 ] && [ "$choice" -le ${#contexts[@]} ]; then
       break
     fi
@@ -136,9 +140,10 @@ menu_pick() {
   done
 
   if [ "$choice" -eq 0 ]; then
-    echo ""; return 0
+    echo ""
+    return 0
   fi
-  echo "${contexts[$((choice-1))]}"
+  echo "${contexts[$((choice - 1))]}"
 }
 
 # Parse args
