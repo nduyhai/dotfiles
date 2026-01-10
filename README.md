@@ -112,8 +112,8 @@ make uninstall
 
 ```
 [user]
-    name = hai.nguyen.duy
-    email = hai.nguyen.duy@vieon.vn
+    name = nduyhai
+    email = nduyhai@mycompany
 
 [includeIf "gitdir:~/workspace/"]
     path = ~/.gitconfig-personal
