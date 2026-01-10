@@ -1,9 +1,6 @@
 # This command is used a LOT both below and in daily life
 alias k=kubectl
 
-# Execute a kubectl command against all namespaces
-alias kca='_kca(){ kubectl "$@" --all-namespaces;  unset -f _kca; }; _kca'
-
 # Apply a YML file
 alias kaf='kubectl apply -f'
 
@@ -22,7 +19,7 @@ alias kccc='kubectl config current-context'
 # List all contexts
 alias kcgc='kubectl config get-contexts'
 
-# General aliases
+#General aliases
 alias kdel='kubectl delete'
 alias kdelf='kubectl delete -f'
 alias kdelk='kubectl delete -k'

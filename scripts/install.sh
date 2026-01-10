@@ -41,4 +41,3 @@ fi
 
 echo ""
 echo "Done. Restart your terminal or run: exec zsh"
-
