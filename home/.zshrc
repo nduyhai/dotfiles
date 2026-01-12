@@ -24,3 +24,15 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+# Google Cloud SDK (preferred: Homebrew gcloud-cli)
+if [ -d "/opt/homebrew/share/google-cloud-sdk/bin" ]; then
+  export PATH="/opt/homebrew/share/google-cloud-sdk/bin:$PATH"
+  export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+
+# Fallback: manual install (tarball)
+elif [ -d "$HOME/google-cloud-sdk/bin" ]; then
+  export PATH="$HOME/google-cloud-sdk/bin:$PATH"
+  export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+fi
